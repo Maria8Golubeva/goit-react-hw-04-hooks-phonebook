@@ -28,6 +28,11 @@ function App() {
   };
 
   const addContact = (data) => {
+    const namesToLowerCase = contacts.map((item) => item.name.toLowerCase());
+    if (namesToLowerCase.find((item) => item === data.name.toLowerCase())) {
+      return alert("please change name");
+    }
+
     const newContact = {
       id: shortid.generate(),
       name: data.name,
